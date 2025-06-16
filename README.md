@@ -65,3 +65,5 @@ btn.addEventListener("click", () => {
 
 - spinner on the button only loading once -> Not Resolved
 - on first click it's not generating -> Not Resolved
+
+------
