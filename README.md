@@ -62,4 +62,6 @@ btn.addEventListener("click", () => {
 - Implemented image fetching without using `async/await`, handled using Promises.
 
 ### ⚠️ Problem Faced
+
 - spinner on the button only loading once -> Not Resolved
+- on first click it's not generating -> Not Resolved
