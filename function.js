@@ -61,5 +61,22 @@ function multi(factor) {
   };
 }
 
-const mul2 = multi(5)
+const mul2 = multi(5);
 console.log(mul2(5));
+
+// returning a formatted number
+const padZeros = (num, totalLens) => {
+  let numStr = num.toString();
+  const numZeros = totalLens - numStr.length;
+
+  for (let i = 0; i < numZeros; i++) numStr = `0${numStr}`;
+
+  return numStr;
+};
+
+let result1 = padZeros(42, 4);
+console.log(result1);
+let result2 = padZeros(42, 5);
+console.log(result2);
+let result3 = padZeros(42, 2);
+console.log(result3);
