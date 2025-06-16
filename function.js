@@ -28,7 +28,7 @@ console.log(even);
 
 const add = arr.reduce((acc, curr) => acc + curr, 0);
 const mul = arr.reduce((acc, curr) => acc * curr, 1);
-
+    
 console.log(add);
 console.log(mul);
 
