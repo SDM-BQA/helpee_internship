@@ -60,3 +60,6 @@ btn.addEventListener("click", () => {
 - Brushed up JavaScript basics and DOM manipulation techniques.
 - Revised different types of JavaScript functions (regular, arrow functions).
 - Implemented image fetching without using `async/await`, handled using Promises.
+
+### ⚠️ Problem Faced
+- spinner on the button only loading once -> Not Resolved
