@@ -8,7 +8,7 @@ const errorPass = document.getElementById("pass_error");
 passIcon.addEventListener("click", () => {
   if (passIcon.classList.contains("fa-eye")) {
     passIcon.classList.replace("fa-eye", "fa-eye-slash");
-    passInput.type = "name";
+    passInput.type = "text";
   } else {
     passIcon.classList.replace("fa-eye-slash", "fa-eye");
     passInput.type = "password";
@@ -17,15 +17,24 @@ passIcon.addEventListener("click", () => {
 
 // check email
 const checkEmail = (email) => {
-  if (!email.match(/^[^@]+@[^@]+\.[^@]+$/))
+  if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
     errorEmail.classList.add("show_error");
-  else errorEmail.classList.remove("show_error");
+    return false;
+  } else {
+    errorEmail.classList.remove("show_error");
+    return true;
+  }
 };
 
 // check password
 const checkPassword = (passwordVal) => {
-  if (passwordVal.length < 6) errorPass.classList.add("show_error");
-  else errorPass.classList.remove("show_error");
+  if (passwordVal.length < 6) {
+    errorPass.classList.add("show_error");
+    return false;
+  } else {
+    errorPass.classList.remove("show_error");
+    return true;
+  }
 };
 
 submitBtn.addEventListener("click", (e) => {
@@ -33,12 +42,7 @@ submitBtn.addEventListener("click", (e) => {
   const emailVal = emailInput.value;
   const passwordVal = passInput.value;
 
-  // if (checkEmail(emailVal) && checkPassword(passwordVal)) {
-  //   console.log("Entered Email is: ", emailVal);
-  //   console.log("Entered Password is: ", passwordVal);
-  //   window.location.href = "home.html";
-  // }
-  if (emailVal && passwordVal) {
+  if (checkEmail(emailVal) && checkPassword(passwordVal)) {
     console.log("Entered Email is: ", emailVal);
     console.log("Entered Password is: ", passwordVal);
     window.location.href = "home.html";
