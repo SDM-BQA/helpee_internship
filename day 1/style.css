@@ -69,15 +69,15 @@
     .image_box #image.show {
       display: block;
     }
-    .hidden {
-      display: none;
-    }
     .loader {
       width: 48px;
       height: 48px;
       border-radius: 50%;
       position: relative;
       animation: rotate 1s linear infinite;
+    }
+    .hidden {
+      display: none;
     }
     .loader::before,
     .loader::after {
@@ -92,10 +92,10 @@
     .loader::after {
       border-color: #ff3d00;
       animation: prixClipFix 2s linear infinite,
-        rotate 0.5s linear infinite reverse;
+      rotate 0.5s linear infinite reverse;
       inset: 6px;
     }
-
+    
     @keyframes rotate {
       0% {
         transform: rotate(0deg);
