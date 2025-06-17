@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <div class="container flex">
+      <div class="left block flex">
+        <div id="nav" class="flex">
+          <img id="logo" src="./src/logo.png" alt="logo" />
+          <span>Sellora</span>
+        </div>
+        <div id="form_block" class="flex">
+          <div class="main_text_block flex">
+            <h2>Welcome Back</h2>
+            <p>Enter your email and password to access your account</p>
+          </div>
+          <form action="" id="form">
+            <div class="form_element">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                required
+                placeholder="Enter Your Email"
+                id="email_input"
+              />
+              <div class="error_email" id="email_error">Provide a valid email address</div>
+            </div>
+            <div class="form_element">
+              <label for="password">Password</label>
+              <div class="password_con flex">
+                <input
+                  id="pass_input"
+                  type="password"
+                  placeholder="Enter Your Password"
+                  required
+                />
+                <i id="pass_icon" class="fa-solid fa-eye"></i>
+              </div>
+              <div class="error_password" id="pass_error">Password Must Be 6 or more character Long</div>
+            </div>
+            <div class="form_util">
+              <div class="check flex">
+                <input type="checkbox" name="name" id="" />
+                <span>Remember Me</span>
+              </div>
+              <div class="password_forgot">
+                <a href="/">Forgot Your Password</a>
+              </div>
+            </div>
+            <div class="form_bottom">
+              <input type="submit" id="submit" value="Log In" />
+              <div class="text flex">
+                <span></span>Or Login with<span></span>
+              </div>
+              <div class="form_bottom_auth">
+                <button class="flex">
+                  <img src="./src/google.png" alt="" />
+                  Google
+                </button>
+                <button class="flex">
+                  <img src="./src/apple.png" alt="" />
+                  Apple
+                </button>
+              </div>
+              <div class="bottom_text">
+                Don't Have An Account? <a href="/">Register Now</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div id="left_bottom">
+          <span>Copyright © 2025 Sellore Enterprises LTD.</span>
+          <span>Privacy Policy</span>
+        </div>
+      </div>
+      <div class="right block">
+        <div class="content">
+          <h2>Effortlessly manage your team and operations.</h2>
+          <p>Log in to access ypur CRM dashboard and manage your team.</p>
+          <div id="right_imgs">
+            <img src="./src/dash.jpg" alt="dash_img" />
+            <img src="./src/dash2.png" id="overlay" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
