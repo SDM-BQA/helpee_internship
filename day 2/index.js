@@ -17,28 +17,15 @@ passIcon.addEventListener("click", () => {
 
 // check email
 const checkEmail = (email) => {
-  if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
-    if (!errorEmail.classList.contains("show_error")) {
-      errorEmail.classList.add("show_error");
-    } else {
-      if (errorEmail.classList.contains("show_error")) {
-        errorEmail.classList.remove("show_error");
-      }
-    }
-  }
+  if (!email.match(/^[^@]+@[^@]+\.[^@]+$/))
+    errorEmail.classList.add("show_error");
+  else errorEmail.classList.remove("show_error");
 };
 
 // check password
 const checkPassword = (passwordVal) => {
-  if (passwordVal.length <= 6) {
-    if (!errorPass.classList.contains("show_error")) {
-      errorPass.classList.add("show_error");
-    } else {
-      if (errorPass.classList.contains("show_error")) {
-        errorPass.classList.remove("show_error");
-      }
-    }
-  }
+  if (passwordVal.length < 6) errorPass.classList.add("show_error");
+  else errorPass.classList.remove("show_error");
 };
 
 submitBtn.addEventListener("click", (e) => {
@@ -46,9 +33,14 @@ submitBtn.addEventListener("click", (e) => {
   const emailVal = emailInput.value;
   const passwordVal = passInput.value;
 
-  if (checkPassword(passwordVal) && checkEmail(emailVal)) {
+  // if (checkEmail(emailVal) && checkPassword(passwordVal)) {
+  //   console.log("Entered Email is: ", emailVal);
+  //   console.log("Entered Password is: ", passwordVal);
+  //   window.location.href = "home.html";
+  // }
+  if (emailVal && passwordVal) {
     console.log("Entered Email is: ", emailVal);
     console.log("Entered Password is: ", passwordVal);
-    window.location.href = "https://www.google.com";
+    window.location.href = "home.html";
   }
 });
