@@ -83,13 +83,15 @@ The login form redirects to the home page upon submission. This exercise helped 
 - Performed simple form validation (e.g., required fields, valid email format).
 - On successful login, redirected to the home page using JavaScript.
 
-### ✅ Key Learnings - Day 2
+### 📷 Screenshot (Login Page UI)
 
-- Designing clean and responsive pages using HTML and CSS.
-- Writing custom CSS for layout and form elements.
-- Implementing basic form validation using JavaScript.
-- Managing page redirection and improving user flow.
+![Login Page](./day%202/src/login.png)
+![Login Page](./day%202/src/home.png)
 
-### ⚠️ Problem Faced - Day 2
+### ✅ Key Learnings
 
-- css alignment issue
+- Brushed up on designing responsive pages using HTML and CSS.
+- Improved understanding of CSS styling for layout and UI.
+- Implemented basic client-side form validation using JavaScript.
+- Managed redirection from login to home page using simple logic.
+
