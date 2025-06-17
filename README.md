@@ -86,7 +86,10 @@ The login form redirects to the home page upon submission. This exercise helped 
 ### 📷 Screenshot (Login Page UI)
 
 ![Login Page](./day%202/src/login.png)
-![Login Page](./day%202/src/home.png)
+
+### 📷 Screenshot (Home Page UI)
+
+![Home Page](./day%202/src/home.png)
 
 ### ✅ Key Learnings
 
@@ -95,3 +98,7 @@ The login form redirects to the home page upon submission. This exercise helped 
 - Implemented basic client-side form validation using JavaScript.
 - Managed redirection from login to home page using simple logic.
 
+### ⚠️ Problem Faced - Day 2
+
+- css alignment
+  
