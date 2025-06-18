@@ -102,3 +102,28 @@ The login form redirects to the home page upon submission. This exercise helped 
 
 - css alignment
   
+------
+
+## DAY 3
+
+Today, I made improvements to the home page of the application. I focused on personalizing the user experience by fetching and displaying the user's name stored in `localStorage`.
+
+In addition, I spent time watching JavaScript tutorials to strengthen my understanding of core concepts.
+
+### 🔧 Updates Made
+
+- Retrieved and displayed the logged-in user's name using `localStorage`.
+- Made minor content or layout improvements on the home page.
+- Tested the login → home flow to ensure data persistence worked smoothly.
+
+### 🖼️ Screenshot
+
+![Home Page Update](./day%202/src/updated_home.png)
+
+### ✅ Key Learnings -Day 3
+
+- How to store and retrieve data using `localStorage`.
+- Enhanced understanding of how front-end data persists across pages.
+- Reinforced JavaScript fundamentals through tutorial videos.
+
+> 📌 No major issues faced during implementation today.
