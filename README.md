@@ -118,7 +118,9 @@ In addition, I spent time watching JavaScript tutorials to strengthen my underst
 
 ### 🖼️ Screenshot
 
-![Home Page Update](./day%202/src/updated_home.png)
+![Home Page Update](/day%204/public/home%20page.png)
+
+![Todo List Page](/day%204/public/toto_page.png)
 
 ### ✅ Key Learnings -Day 3
 
@@ -127,3 +129,35 @@ In addition, I spent time watching JavaScript tutorials to strengthen my underst
 - Reinforced JavaScript fundamentals through tutorial videos.
 
 > 📌 No major issues faced during implementation today.
+
+------
+
+## DAY 4
+
+Today, I built a simple **To-Do App** and integrated it with the login component I created on Day 2. The username is fetched from `localStorage` and displayed on the to-do screen for a personalized experience.
+
+The app allows users to add tasks, mark them as complete, and (intended) edit them — though I faced issues with the edit functionality.
+
+### 📝 Features Implemented
+
+- User login reused from Day 2 to personalize the app.
+- Add new to-do tasks with input validation.
+- Mark tasks as completed or pending.
+- Display the logged-in user's name from `localStorage`.
+
+### ⚠️ Issue Faced - day 4
+
+- Faced challenges with **editing existing tasks** — changes were either not reflected or overwritten incorrectly.
+- Need to revisit DOM element tracking and state update logic for better control over task edits.
+
+### 🖼️ Screenshot Placeholder
+
+![Todo App Screenshot](images/day4-todo-app.png) <!-- Replace this with your actual image path later -->
+
+### ✅ Key Learnings - day 4
+
+- Reusing login components and data across pages.
+- Better grasp of working with dynamic lists in JavaScript.
+- Need more clarity on DOM updates for editable elements.
+
+> Next step: Fix edit functionality and explore localStorage persistence for tasks.
