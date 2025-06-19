@@ -159,5 +159,3 @@ The app allows users to add tasks, mark them as complete, and (intended) edit th
 - Reusing login components and data across pages.
 - Better grasp of working with dynamic lists in JavaScript.
 - Need more clarity on DOM updates for editable elements.
-
-> Next step: Fix edit functionality and explore localStorage persistence for tasks.
