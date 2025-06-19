@@ -118,9 +118,7 @@ In addition, I spent time watching JavaScript tutorials to strengthen my underst
 
 ### 🖼️ Screenshot
 
-![Home Page Update](/day%204/public/home%20page.png)
-
-![Todo List Page](/day%204/public/toto_page.png)
+![Home Page Update](./day%202/src/updated_home.png)
 
 ### ✅ Key Learnings -Day 3
 
@@ -145,14 +143,16 @@ The app allows users to add tasks, mark them as complete, and (intended) edit th
 - Mark tasks as completed or pending.
 - Display the logged-in user's name from `localStorage`.
 
-### ⚠️ Issue Faced - day 4
+### ⚠️ Problem Faced - day 4
 
 - Faced challenges with **editing existing tasks** — changes were either not reflected or overwritten incorrectly.
 - Need to revisit DOM element tracking and state update logic for better control over task edits.
 
 ### 🖼️ Screenshot Placeholder
 
-![Todo App Screenshot](images/day4-todo-app.png) <!-- Replace this with your actual image path later -->
+![Home Page Update](/day%204/public/home%20page.png)
+
+![Todo List Page](/day%204/public/toto_page.png)
 
 ### ✅ Key Learnings - day 4
 
