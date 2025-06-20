@@ -1,15 +1,27 @@
-var guessedNum = 56;
+var btn = document.getElementById("btn");
+var numInput = document.getElementById("num");
+var result = document.getElementById("result");
 var randomNum = Math.floor(Math.random() * 100) + 1;
 function checkNumber(userNum, actualNum) {
     if (userNum > actualNum) {
-        console.log("Guess low number");
+        result.textContent = "Guess low number";
     }
     else if (userNum < actualNum) {
-        console.log("Guess High Number");
+        result.textContent = "Guess High number";
     }
     else {
-        console.log("You Guessed it right");
+        result.textContent = "You Guessed it right";
     }
 }
-;
-checkNumber(guessedNum, randomNum);
+btn.addEventListener("click", function () {
+    if (numInput.value) {
+        var userGuess = parseInt(numInput.value);
+        if (!isNaN(userGuess)) {
+            checkNumber(userGuess, randomNum);
+        }
+        else {
+            result.textContent = "Please enter a valid number.";
+        }
+        numInput.value = "";
+    }
+});

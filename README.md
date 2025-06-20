@@ -160,6 +160,8 @@ The app allows users to add tasks, mark them as complete, and (intended) edit th
 - Better grasp of working with dynamic lists in JavaScript.
 - Need more clarity on DOM updates for editable elements.
 
+------
+
 ## DAY 5
 
 Today, I attended a 30-minute introductory session on **TypeScript**. The class covered the basics such as:
@@ -173,20 +175,34 @@ After the session, I explored TypeScript further by creating a small number gues
 ### 🎮 Small Guessing Game in TypeScript
 
 ```ts
-const guessedNum: number = 56;
+const btn = document.getElementById("btn") as HTMLInputElement;
+const numInput = document.getElementById("num") as HTMLInputElement;
+const result = document.getElementById("result") as HTMLInputElement;
+
 let randomNum: number = Math.floor(Math.random() * 100) + 1;
 
 function checkNumber(userNum: number, actualNum: number): void {
   if (userNum > actualNum) {
-    console.log("Guess low number");
+    result.textContent = "Guess low number";
   } else if (userNum < actualNum) {
-    console.log("Guess High Number");
+    result.textContent = "Guess High number";
   } else {
-    console.log("You Guessed it right");
+    result.textContent = "You Guessed it right";
   }
 }
 
-checkNumber(guessedNum, randomNum);
+btn.addEventListener("click", () => {
+  if (numInput.value) {
+    const userGuess = parseInt(numInput.value);
+    if (!isNaN(userGuess)) {
+      checkNumber(userGuess, randomNum);
+    } else {
+      result.textContent = "Please enter a valid number.";
+    }
+    numInput.value = "";
+  }
+});
+
 ```
 
 ### ✅ Key Learnings - day 5
@@ -198,3 +214,5 @@ checkNumber(guessedNum, randomNum);
 - Practiced writing simple logic with typed parameters.
 
 - Reinforced understanding of control flow using if/else.
+
+------
