@@ -159,3 +159,42 @@ The app allows users to add tasks, mark them as complete, and (intended) edit th
 - Reusing login components and data across pages.
 - Better grasp of working with dynamic lists in JavaScript.
 - Need more clarity on DOM updates for editable elements.
+
+## DAY 5
+
+Today, I attended a 30-minute introductory session on **TypeScript**. The class covered the basics such as:
+
+- `interface`
+- `type`
+- Static typing fundamentals
+
+After the session, I explored TypeScript further by creating a small number guessing game. This helped me understand how functions and type annotations work in TypeScript.
+
+### 🎮 Small Guessing Game in TypeScript
+
+```ts
+const guessedNum: number = 56;
+let randomNum: number = Math.floor(Math.random() * 100) + 1;
+
+function checkNumber(userNum: number, actualNum: number): void {
+  if (userNum > actualNum) {
+    console.log("Guess low number");
+  } else if (userNum < actualNum) {
+    console.log("Guess High Number");
+  } else {
+    console.log("You Guessed it right");
+  }
+}
+
+checkNumber(guessedNum, randomNum);
+```
+
+### ✅ Key Learnings - day 5
+
+- Understood basic TypeScript syntax and types.
+
+- Learned how to define and use number types in functions.
+
+- Practiced writing simple logic with typed parameters.
+
+- Reinforced understanding of control flow using if/else.
