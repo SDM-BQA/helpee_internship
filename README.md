@@ -268,7 +268,7 @@ Today, I followed a React crash course and created a small project by watching a
 
 ![View Job Page](/day%206/public/view_job.png)
 
-![View Job Page](/day%206/public/browse_jobs.png)
+![Add Job Page](/day%206/public/add_job.png)
 
 ### 🧪 JSX Overview
 
