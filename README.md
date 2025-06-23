@@ -216,3 +216,37 @@ btn.addEventListener("click", () => {
 - Reinforced understanding of control flow using if/else.
 
 ------
+
+## Day 6
+
+today i have done react crash course and created a project by seeing youtube tutorial 
+
+- **JSX Overview**
+
+```jsx
+const App = () => {
+  const names = ["allice", "john", "bob", "roy"];
+  const loggedIn = false;
+  const styles = {
+    color:'red',
+    fontSize: '55px'
+  }
+
+  return (
+    <>
+      <div className="text-5xl">App</div>
+      <p style={styles}>Color Red</p>
+      <ul>
+        {names.map((name, index) => (
+          <li key={index}>{name}</li>
+        ))}
+      </ul>
+
+      {loggedIn ? <h1>Hello Member</h1> : <h1>Hello Guest</h1>}
+      {loggedIn && <h1>Hello Member</h1>}
+    </>
+  );
+};
+
+export default App;
+```
