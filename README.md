@@ -148,7 +148,7 @@ The app allows users to add tasks, mark them as complete, and (intended) edit th
 - Faced challenges with **editing existing tasks** — changes were either not reflected or overwritten incorrectly.
 - Need to revisit DOM element tracking and state update logic for better control over task edits.
 
-### 🖼️ Screenshot Placeholder
+### 🖼️ Screenshots
 
 ![Home Page Update](/day%204/public/home%20page.png)
 
@@ -217,20 +217,69 @@ btn.addEventListener("click", () => {
 
 ------
 
-## Day 6
+## DAY 6
 
-today i have done react crash course and created a project by seeing youtube tutorial 
+Today, I followed a React crash course and created a small project by watching a tutorial on building a job listing website. The tutorial was from **Traversy Media** on YouTube. This helped me get a practical understanding of modern React concepts.
 
-- **JSX Overview**
+------
+
+### 🚀 Topics Covered
+
+- **React**
+  – Component-based architecture using functional components.
+- **State**
+  – Used to store and manage dynamic data with `useState`.
+- **Hooks**
+  – Introduction to `useState` and `useEffect`.
+- **JSX (JavaScript Syntax Extension)**
+  – Syntax to write HTML-like code inside JavaScript.
+- **SPA, SSR, SSG**
+  – Concepts of single-page applications and rendering strategies.
+- **Vite**
+  – Fast development server and bundler for React apps.
+- **React Router DOM**
+  – For navigation and routing between pages.
+- **Data Loader**
+  – Loading and passing API data to components.
+- **Hosting Local Data**
+  – Simulated backend using local files.
+- **Component Reusability**
+  – Creating reusable UI components for cleaner and scalable code.
+- **Props**
+  – Passing data from parent to child components for dynamic content.
+- **Conditional Rendering**
+  – Showing different UI based on conditions using ternary and logical operators.
+- **List Rendering**
+  – Using `.map()` to render lists of items dynamically.
+- **Inline Styling & Class-based Styling**
+  – Combining CSS classes with inline styles in JSX.
+- **Basic Folder Structure**
+ – Understanding the organization of React apps (components, pages, assets, etc.).
+- **Debugging with Console**
+ – Practiced debugging through `console.log` and browser dev tools.
+
+------
+
+### 🖼️ Screenshot Placeholder
+
+![Home Page](/day%206/public/home.png)
+
+![Browse Jobs Page](/day%206/public/browse_jobs.png)
+
+![View Job Page](/day%206/public/view_job.png)
+
+![View Job Page](/day%206/public/browse_jobs.png)
+
+### 🧪 JSX Overview
 
 ```jsx
 const App = () => {
   const names = ["allice", "john", "bob", "roy"];
   const loggedIn = false;
   const styles = {
-    color:'red',
+    color: 'red',
     fontSize: '55px'
-  }
+  };
 
   return (
     <>
@@ -250,3 +299,23 @@ const App = () => {
 
 export default App;
 ```
+
+### ✅ Key Learnings - day 6
+
+- Learned how to use useState and useEffect hooks in functional components.
+
+- Understood routing in React using react-router-dom.
+
+- Explored how to load and pass data using React Router's data loader.
+
+- Learned how to simulate and host data on a local server using Vite.
+
+- Got comfortable writing clean JSX and using conditional rendering.
+
+- Practiced prop passing and component structuring.
+
+### ⚠️ Problem Faced - day 6
+
+- Faced issues while using data loader – especially in understanding where and how to fetch and pass the data.
+
+- Had minor confusion around passing props between nested components.
