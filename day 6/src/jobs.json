@@ -24,7 +24,7 @@
       "company": {
         "name": "Veneer Solutions",
         "description": "Veneer Solutions is a creative agency specializing in digital design and development. Our team is dedicated to pushing the boundaries of creativity and innovation to deliver exceptional results for our clients.",
-        "contactEmail": "contact@loremipsum.com",
+        "contactEmail": "contact@loremipsum.co",
         "contactPhone": "555-555-5555"
       }
     },
@@ -68,6 +68,20 @@
         "description": "helpee is a startup company",
         "contactEmail": "helpee@help.com",
         "contactPhone": "7896547895"
+      }
+    },
+    {
+      "id": "059d",
+      "title": "Node Js",
+      "type": "Full-Time",
+      "location": "bengaluru",
+      "description": "backend developer",
+      "salary": "Under $50K",
+      "company": {
+        "name": "helpee",
+        "description": "heloee is a startup",
+        "contactEmail": "heloee@help.com",
+        "contactPhone": "7412365898"
       }
     }
   ]
