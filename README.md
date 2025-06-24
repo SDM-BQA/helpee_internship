@@ -321,3 +321,9 @@ export default App;
 - Had minor confusion around passing props between nested components.
 
 ## Day 7
+
+- **Redux**
+- Redux is a state management library which helps to create and maintain global state in react application
+  - Store -> it is a state, accesiable from anywhere
+  - Action
+  - Reducers
