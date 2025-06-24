@@ -319,3 +319,5 @@ export default App;
 - Faced issues while using data loader – especially in understanding where and how to fetch and pass the data.
 
 - Had minor confusion around passing props between nested components.
+
+## Day 7

@@ -4,8 +4,8 @@
       "id": "1",
       "title": "Senior React Developer",
       "type": "Full-Time",
-      "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
       "location": "Boston, MA",
+      "description": "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
       "salary": "$70K - $80K",
       "company": {
         "name": "NewTek Solutions",
@@ -30,7 +30,7 @@
     },
     {
       "id": "3",
-      "title": "React.js Dev",
+      "title": "React.js Developer",
       "type": "Full-Time",
       "location": "Brooklyn, NY",
       "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
@@ -54,6 +54,20 @@
         "description": "Alpha Elite is a dynamic startup specializing in digital marketing and web development. We are committed to fostering a diverse and inclusive workplace where creativity and innovation thrive.",
         "contactEmail": "contact@adipisicingelit.com",
         "contactPhone": "555-555-5555"
+      }
+    },
+    {
+      "id": "8e50",
+      "title": "Front End",
+      "type": "Full-Time",
+      "location": "bengaluru",
+      "description": "front end",
+      "salary": "Under $50K",
+      "company": {
+        "name": "helpee",
+        "description": "helpee is a startup company",
+        "contactEmail": "helpee@help.com",
+        "contactPhone": "7896547895"
       }
     }
   ]
