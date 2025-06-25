@@ -320,10 +320,70 @@ export default App;
 
 - Had minor confusion around passing props between nested components.
 
-## Day 7
+## DAY 7
 
-- **Redux**
-- Redux is a state management library which helps to create and maintain global state in react application
-  - Store -> it is a state, accesiable from anywhere
-  - Action
-  - Reducers
+Today, I focused on understanding **Redux**, which initially felt a bit confusing. I watched two videos to understand the basic flow of how Redux works with React, and things started to make more sense by the end of the day.
+
+Later, our sir gave us a **Redux demo**, and with its help, I was able to create a simple component that shows a counter and updates it using two buttons (increment and decrement). I followed the official Redux documentation to guide my implementation.
+
+------
+
+### 🧠 Topics Covered
+
+- What is Redux and why it's used in large-scale React applications.
+- Concept of `store`, `actions`, `reducers`, and `dispatch`.
+- How to connect Redux with React using `useSelector` and `useDispatch`.
+- Created a small working example of a counter app using Redux.
+
+------
+
+### 🧪 Redux Counter Component (Demo Code)
+
+```tsx
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../app/store";
+import {
+  decrementounter,
+  incrementCounter,
+} from "../features/counter/counterSlice";
+
+const Counter = () => {
+  const state = useSelector((root: RootState) => root.counter);
+  const { counter } = state;
+  const dispatch = useDispatch();
+
+  const increment = () => {
+    dispatch(incrementCounter());
+  };
+  const decrement = () => {
+    dispatch(decrementounter());
+  };
+
+  return (
+    <>
+      <h1>Counter: {counter}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </>
+  );
+};
+
+export default Counter;
+```
+
+✅ Key Learnings - Day 7
+Understood the core concepts of Redux and its purpose in state management.
+
+Learned how to use useSelector to access the store state.
+
+Used useDispatch to trigger actions and update the store.
+
+Gained confidence reading and understanding Redux documentation.
+
+Started getting comfortable with TypeScript in Redux setup.
+
+🖼️ Screenshot
+
+![Redux Demo](/day%206/public/redux_home.png)
+
+------
