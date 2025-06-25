@@ -1,4 +1,6 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 interface LoginFormState {
   email: string;
@@ -18,9 +20,22 @@ const Form: React.FC = () => {
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if(loginData.email !== 'sdm@g.com' && loginData.password !== '123456'){
+      toast.error('Check Credential')
+      return
+    }
+    
     console.log(loginData);
+
+    setTimeout(()=>{
+      return navigate('/home')
+    }, 1000)
+    
+    toast.success("yesssssssssssssssssssssssssssssssssssssss")
   };
 
   return (
