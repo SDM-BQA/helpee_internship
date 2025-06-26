@@ -387,3 +387,46 @@ Started getting comfortable with TypeScript in Redux setup.
 ![Redux Demo](/day%206/public/redux_home.png)
 
 ------
+
+## DAY 8
+
+Today, I converted the **Login Page (from Day 2)** into a **React + TypeScript** project and styled it using **Tailwind CSS**. This was my first hands-on project using Tailwind, and although I faced some initial difficulty understanding the utility classes, the final result turned out well.
+
+Now, I feel confident building websites using Tailwind CSS.
+
+------
+
+### 🔧 What I Did
+
+- Rebuilt the login component in a React TypeScript project.
+- Used **Tailwind CSS** for styling instead of traditional CSS.
+- Improved the UI appearance with consistent spacing, colors, and layout.
+- Faced some initial challenges with layout alignment and spacing in Tailwind.
+- Still need to test and improve the **responsiveness** of the layout.
+
+------
+
+### ✅ Key Learnings day 8
+
+- Got hands-on experience with **Tailwind CSS** for utility-first styling.
+- Improved understanding of **React + TypeScript** project structure.
+- Practiced using **Tailwind utility classes** for layout, spacing, typography, and buttons.
+- Gained confidence in converting vanilla HTML/CSS to modern tech stacks.
+- Realized the importance of **responsive design**, planning to explore media queries and Tailwind breakpoints.
+
+------
+
+### ⚠️ Problems Faced - day 8
+
+- Faced confusion in the beginning with **Tailwind class combinations** for padding, margin, and centering elements.
+- Struggled with **alignment issues**, especially with form layout and button placement.
+- Initially forgot to configure **Tailwind correctly** with React + TypeScript (postcss setup).
+- Need more clarity on handling **responsive design** using Tailwind’s `sm`, `md`, `lg` breakpoints.
+
+------
+
+### 🖼️ Screenshot - day 8
+
+![Login Page Tailwind](./day%208i/src/assets/login.png) <!-- Replace this with the actual image path -->
+
+------
