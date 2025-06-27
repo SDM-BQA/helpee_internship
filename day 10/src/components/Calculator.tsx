@@ -32,7 +32,7 @@ const Calculator = () => {
     const [userInput, setUserInput] = useState<string>("");
     const [showValues, setShowValues] = useState<string>("");
 
-    const handleClick = (op) => {
+    const handleClick = (op:Ops) => {
         if (op.value === "back") {
             setUserInput((prev) => prev.slice(0, -1));
             setShowValues((prev) => prev.slice(0, -1));
