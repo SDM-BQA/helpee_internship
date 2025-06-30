@@ -14,7 +14,7 @@ const Stars = () => {
   const ids = [1, 2, 3, 4, 5];
   const { width, height } = useWindowSize();
   return (
-    <div className="bg-black h-dvh flex items-center justify-center flex-col gap-5">
+    <div className="bg-black w-full h-dvh flex items-center justify-center flex-col gap-5">
       {num >= 3 && <Confetti width={width} height={height} />}
     <div className="flex items-center justify-center gap-5">
       {ids.map((id) => (

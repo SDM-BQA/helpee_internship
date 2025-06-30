@@ -8,11 +8,11 @@ import Calculator from "./components/Calculator"
 
 const App = () =>{
   return (
-    <div className="w-full h-dvh flex items-center justify-center bg-[#964B00]">
+    <div className="w-full h-dvh flex items-center justify-center">
     {/* <Stars/> */}
     {/* <Dropdown/> */}
     {/* <AutoComplete/> */}
-    <Calculator/>
+    <Calculator/> 
     </div>
   )
 }

@@ -573,4 +573,328 @@ export default userInfoSlice.reducer;
 
 ### 🖼️ Screenshot - day 9
 
-![Login Page Tailwind](./day%208i/src/assets/login.png)
+![Login Page Tailwind](./day%2010/src/assets/login.png)
+
+------
+
+## DAY 10
+
+Today, I brushed up on my **React skills** by building four small but useful UI components. This helped reinforce core concepts like `useState`, conditional rendering, event handling, and component structure.
+
+------
+
+### 🔧 What I Built
+
+1. **⭐ Star Rating Component**
+2. **⬇️ Dropdown Menu**
+3. **🔍 Autocomplete Input**
+4. **🧮 Simple Calculator**
+
+------
+
+### ✅ Key Learnings - day 10
+
+- Strengthened understanding of `useState` and props.
+- Practiced event handling and conditional UI rendering.
+- Understood how to structure reusable and independent components.
+- Got more comfortable managing component-level logic and state updates.
+
+------
+
+### ⚠️ Problems Faced - day 10
+
+- Initially struggled with the **logic behind each component**, especially in handling events and managing state updates cleanly.
+- Took time to decide **where and how to apply styles** with Tailwind CSS.
+- Faced some issues while handling edge cases like empty input or backspace in the calculator.
+
+------
+
+## ⭐ Star Rating Component
+
+```tsx
+// Stars.tsx
+import { useState } from "react";
+import Star from './Star';
+import { useWindowSize } from "react-use";
+import Confetti from "react-confetti";
+
+const Stars = () => {
+  const [num, setNum] = useState<number>(0);
+  const [color, setColor] = useState<string>("");
+
+  const handleClick = (e: number) => {
+    setNum(e);
+    setColor("yellow");
+  };
+
+  const ids = [1, 2, 3, 4, 5];
+  const { width, height } = useWindowSize();
+
+  return (
+    <div className="bg-black h-dvh flex items-center justify-center flex-col gap-5">
+      {num >= 3 && <Confetti width={width} height={height} />}
+      <div className="flex items-center justify-center gap-5">
+        {ids.map((id) => (
+          <Star
+            key={id}
+            id={id}
+            handleClick={handleClick}
+            color={color}
+            num={num}
+          />
+        ))}
+      </div>
+      {num && <p className="text-slate-400">Thank you for rating {num} star</p>}
+    </div>
+  );
+};
+
+export default Stars;
+```
+
+### 🖼️ Screenshot - Star
+
+![Star Rating Component](./day%2010/src/assets/star.png)
+
+------
+
+## ⬇️ Dropdown Menu Component
+
+```tsx
+// Dropdown.tsx
+import { useState } from "react";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+
+const Dropdown = () => {
+  const [showDrop, setShowDrop] = useState<boolean>(false);
+  const [selected, setSelected] = useState<string>("");
+
+  const jobRoles = [
+    { id: 1, label: "Software Engineer" },
+    { id: 2, label: "Data Analyst" },
+    { id: 3, label: "Project Manager" },
+    { id: 4, label: "UX Designer" },
+    { id: 5, label: "Marketing Specialist" },
+  ];
+
+  const handleDropDown = () => setShowDrop(!showDrop);
+
+  const handleSelected = (label: string) => {
+    setSelected(label);
+    setShowDrop(false);
+  };
+
+  return (
+    <div className="flex items-center justify-center gap-2 flex-col relative">
+      <div className="text-2xl font-bold mb-2">Dropdown Component</div>
+      <div
+        className="flex items-center justify-between w-full p-3 cursor-pointer border rounded-lg"
+        onClick={handleDropDown}
+      >
+        <span className="font-semibold">{selected || "Select an Option"}</span>
+        <span>{showDrop ? <FaCaretUp /> : <FaCaretDown />}</span>
+      </div>
+      {showDrop && (
+        <div className="border w-full p-2 text-center rounded-lg flex gap-1 flex-col absolute top-26">
+          {jobRoles.map((role) => (
+            <p
+              key={role.id}
+              className="rounded-lg cursor-pointer p-2 hover:bg-slate-200"
+              onClick={() => handleSelected(role.label)}
+            >
+              {role.label}
+            </p>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Dropdown;
+```
+
+### 🖼️ Screenshot - Dropdown Menu
+
+![Dropdown Menu](./day%2010/src/assets/dropdown.png)
+
+------
+
+## 🔍 Autocomplete Input Component
+
+```tsx
+// AutoComplete.tsx
+import { useState } from "react";
+
+const AutoComplete = () => {
+  const [query, setQuery] = useState("");
+  const [items, setItems] = useState([]);
+
+  const suggestions = [
+    { id: 1, label: "Apple" },
+    { id: 2, label: "Banana" },
+    { id: 3, label: "Blueberry" },
+    { id: 4, label: "Cherry" },
+    { id: 5, label: "Grapes" },
+    { id: 6, label: "Mango" },
+    { id: 7, label: "Orange" },
+    { id: 8, label: "Peach" },
+    { id: 9, label: "Pineapple" },
+    { id: 10, label: "Strawberry" },
+    { id: 11, label: "Watermelon" },
+  ];
+
+  const handleChange = (userInput: string) => {
+    if (!userInput) return setItems([]);
+    const filtered = suggestions.filter((s) =>
+      s.label.toLowerCase().includes(userInput.toLowerCase())
+    );
+    setItems(filtered);
+  };
+
+  const handleSelect = (label: string) => {
+    setQuery(label);
+    setItems([]);
+  };
+
+  return (
+    <div className="w-90 flex flex-col gap-5">
+      <div className="text-center text-2xl font-bold">Autocomplete Component</div>
+      <input
+        value={query}
+        type="text"
+        placeholder="Enter your query"
+        className="w-full p-3 font-semibold border-b border-slate-400 outline-none"
+        onChange={(e) => {
+          const input = e.target.value;
+          setQuery(input);
+          handleChange(input);
+        }}
+      />
+      <div>
+        {items.length === 0 ? (
+          <div className="text-slate-500 p-2 text-center italic">Nothing to show</div>
+        ) : (
+          items.map((item) => (
+            <div
+              key={item.id}
+              className="border-b border-slate-400 p-2 cursor-pointer"
+              onClick={() => handleSelect(item.label)}
+            >
+              {item.label}
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default AutoComplete;
+```
+
+### 🖼️ Screenshot - Auto-complete Input
+
+![Auto-complete Input](./day%2010/src/assets/autocomplete.png)
+
+------
+
+## 🧮 Simple Calculator Component
+
+```tsx
+// Calculator.tsx
+import { useState } from "react";
+
+const Calculator = () => {
+  interface Ops {
+    name: string;
+    value: string;
+  }
+
+  const ops: Ops[] = [
+    { name: "C", value: "clear" },
+    { name: "Back", value: "back" },
+    { name: "%", value: "%" },
+    { name: "/", value: "/" },
+    { name: "7", value: "7" },
+    { name: "8", value: "8" },
+    { name: "9", value: "9" },
+    { name: "X", value: "*" },
+    { name: "4", value: "4" },
+    { name: "5", value: "5" },
+    { name: "6", value: "6" },
+    { name: "-", value: "-" },
+    { name: "1", value: "1" },
+    { name: "2", value: "2" },
+    { name: "3", value: "3" },
+    { name: "+", value: "+" },
+    { name: "+/-", value: "toggle-sign" },
+    { name: "0", value: "0" },
+    { name: ".", value: "." },
+    { name: "=", value: "equals" },
+  ];
+
+  const [userInput, setUserInput] = useState<string>("");
+  const [showValues, setShowValues] = useState<string>("");
+
+  const handleClick = (op: Ops) => {
+    if (op.value === "back") {
+      setUserInput((prev) => prev.slice(0, -1));
+      setShowValues((prev) => prev.slice(0, -1));
+      return;
+    }
+
+    if (op.value === "clear") {
+      setUserInput("");
+      setShowValues("");
+      return;
+    }
+
+    if (op.value === "equals") {
+      try {
+        const ans = eval(userInput);
+        setUserInput(ans);
+        setShowValues(ans);
+      } catch (error) {
+        setUserInput("Illegal Expression");
+      }
+      return;
+    }
+
+    setUserInput((prev) => prev + op.value);
+    setShowValues((prev) =>
+      op.value === "*" ? prev + "X" : prev + op.name
+    );
+  };
+
+  return (
+    <div className="w-100">
+      <div className="font-bold text-3xl mb-5 text-center text-white">Calculator</div>
+      <div className="bg-slate-300 flex flex-col gap-1 w-full border rounded-lg py-4 px-2">
+        <div className="overflow-x-scroll screen text-right px-2 py-4 bg-slate-100 rounded-lg text-xl">
+          {showValues || <p className="text-gray-400">Enter Something...</p>}
+        </div>
+        <div className="p-2 grid grid-cols-4 gap-4 text-center">
+          {ops.map((op) => (
+            <div
+              key={op.value}
+              className="odd:bg-black odd:text-white text-md flex items-center justify-center p-2 bg-slate-100 cursor-pointer rounded-lg"
+              onClick={() => handleClick(op)}
+            >
+              {op.name}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Calculator;
+```
+
+### 🖼️ Screenshot - Simple Calculator
+
+![Simple Calculator](./day%2010/src/assets/calculator.png)
+
+------
