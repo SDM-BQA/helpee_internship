@@ -427,6 +427,150 @@ Now, I feel confident building websites using Tailwind CSS.
 
 ### 🖼️ Screenshot - day 8
 
-![Login Page Tailwind](./day%208i/src/assets/login.png) <!-- Replace this with the actual image path -->
+![Login Page Tailwind](./day%208i/src/assets/login.png)
 
 ------
+
+## Day 9
+
+Today, I learned how to use **Redux** with **Redux Thunk** and implemented it in the login flow of my project. I used Redux to store the email and password entered on the login page and displayed the user's name on the home page. Additionally, I made an API request using **Redux Thunk** to fetch and display a list of users.
+
+------
+
+- 🔧 What I Did
+
+- Integrated **Redux** into the login page to manage user credentials (email and password).
+- Passed the stored user data to the **Home Page** using Redux state.
+- Used **Redux Thunk** to make an asynchronous API call to fetch user names.
+- Displayed the fetched user list on the home page.
+- Practiced combining Redux with components and handling state updates smoothly.
+
+------
+
+### ✅ Key Learnings - day 9
+
+- Deepened understanding of Redux state management in a React + TypeScript setup.
+- Learned how to write **actions**, **reducers**, and configure **Redux store**.
+- Gained practical experience with **Redux Thunk** for asynchronous actions (API calls).
+- Improved ability to share global state (e.g., user info) across components.
+- Understood how to debug and monitor Redux actions and state changes effectively.
+
+------
+
+### ⚠️ Problems Faced - day 9
+
+- Initial confusion about where to place the async logic for API calls in Redux.
+- Faced issues with properly dispatching the thunk action from the component.
+- Minor trouble with displaying fetched data due to incorrect state structure.
+
+------
+
+### 🧱 Redux Store Configuration
+
+```ts
+// store.ts
+import { configureStore } from "@reduxjs/toolkit";
+import auth_reducer from "../features/login/authSlice";
+import user_reducer from "../features/users/userInfoSlice";
+
+export const store = configureStore({
+  reducer: {
+    auth: auth_reducer,
+    user: user_reducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+```
+
+- AuthSlice
+
+```ts
+// authSlice.ts
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState: {
+    email: "",
+    password: "",
+  },
+  reducers: {
+    logIn: (
+      state,
+      action: PayloadAction<{ email: string; password: string }>
+    ) => {
+      state.email = action.payload.email;
+      state.password = action.payload.password;
+    },
+    logOut: (state) => {
+      state.email = "";
+      state.password = "";
+    },
+  },
+});
+
+export const { logIn, logOut } = authSlice.actions;
+export default authSlice.reducer;
+```
+
+- Users Slice
+  
+```ts
+// userInfoSlice.ts
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+interface UserState {
+  data: User[];
+  loading: boolean;
+  error: string | null;
+}
+
+const initialState: UserState = {
+  data: [],
+  loading: false,
+  error: null,
+};
+
+export const fetchUsers = createAsyncThunk("user/fetchUsers", async () => {
+  const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+  return response.data;
+});
+
+const userInfoSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchUsers.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchUsers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchUsers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Something went wrong";
+      });
+  },
+});
+
+export default userInfoSlice.reducer;
+
+```
+
+### 🖼️ Screenshot - day 9
+
+![Login Page Tailwind](./day%208i/src/assets/login.png)
