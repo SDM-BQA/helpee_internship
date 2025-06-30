@@ -1,15 +1,19 @@
-import BarChart from "../components/BarChart"
-import DonutChart from "../components/DonutChart"
-import LineChart from "../components/LineChart"
+import BarChart from "../components/BarChart";
+import DonutChart from "../components/DonutChart";
+import LineChart from "../components/LineChart";
+import RadarChart from "../components/RadarChart";
+import TreeMap from "../components/TreeMap";
 
 const Charts = () => {
   return (
     <div className="grid grid-cols-2 gap-6">
-        <BarChart/>
-        <LineChart/>
-        <DonutChart/>
+      <BarChart />
+      <LineChart />
+      <DonutChart />
+      <RadarChart />
+      <TreeMap />
     </div>
-  )
-}
+  );
+};
 
-export default Charts
+export default Charts;

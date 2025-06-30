@@ -8,7 +8,7 @@ const BarChart = () => {
         id: "basic-bar",
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
       },
     },
     series: [
@@ -23,6 +23,7 @@ const BarChart = () => {
     <div className="app">
       <div className="row">
         <div className="mixed-chart">
+          <div className="text-center text-2xl font-bold">Bar Chart</div>
           <Chart
             options={chartData.options}
             series={chartData.series}

@@ -16,6 +16,10 @@ const LineChart = () => {
         name: "series-2",
         data: [30, 40, 45, 50, 49, 60, 70, 91],
       },
+      {
+        name: "series-3",
+        data: [20, 30, 35, 50, 40, 65, 60, 81],
+      },
     ],
   });
 
@@ -23,6 +27,8 @@ const LineChart = () => {
     <div className="app">
       <div className="row">
         <div className="mixed-chart">
+          <div className="text-center text-2xl font-bold">Line Chart</div>
+
           <Chart
             options={chartData.options}
             series={chartData.series}
