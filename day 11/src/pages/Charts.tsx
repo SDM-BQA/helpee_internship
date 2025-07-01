@@ -1,4 +1,5 @@
 import BarChart from "../components/BarChart";
+import ColumnChart from "../components/ColumnChart";
 import DonutChart from "../components/DonutChart";
 import LineChart from "../components/LineChart";
 import RadarChart from "../components/RadarChart";
@@ -12,6 +13,7 @@ const Charts = () => {
       <DonutChart />
       <RadarChart />
       <TreeMap />
+      <ColumnChart/>
     </div>
   );
 };

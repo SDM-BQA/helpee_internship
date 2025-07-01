@@ -12,7 +12,7 @@ const DonutChart = () => {
   });
   return (
     <div className="donut">
-      <div className="text-center text-2xl font-bold">Donut Chart</div>
+      <div className="text-2xl font-bold">Donut Chart</div>
 
       <Chart
         options={chartData.options}

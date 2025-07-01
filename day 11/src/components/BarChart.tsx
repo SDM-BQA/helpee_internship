@@ -23,7 +23,7 @@ const BarChart = () => {
     <div className="app">
       <div className="row">
         <div className="mixed-chart">
-          <div className="text-center text-2xl font-bold">Bar Chart</div>
+          <div className="text-2xl font-bold">Bar Chart</div>
           <Chart
             options={chartData.options}
             series={chartData.series}

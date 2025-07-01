@@ -48,7 +48,7 @@ const TreeMap = () => {
     <div className="app">
       <div className="row">
         <div className="mixed-chart">
-          <div className="text-center text-2xl font-bold">TreeMap Chart</div>
+          <div className="text-2xl font-bold">TreeMap Chart</div>
 
           <Chart
             options={chartData.options}
