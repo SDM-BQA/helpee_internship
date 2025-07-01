@@ -898,3 +898,57 @@ export default Calculator;
 ![Simple Calculator](./day%2010/src/assets/calculator.png)
 
 ------
+
+## DAY 11
+
+Today, I improved the **Calculator Component** by handling edge cases and making the logic more robust. Additionally, I explored **React Charting** using the **ApexCharts** library to visualize data in a modern and interactive way.
+
+------
+
+### 🔧 What I Did - day 11
+
+- ✅ Handled edge cases in the calculator (e.g., division by zero, invalid expressions).
+- ✅ Prevented invalid consecutive operators like `++`, `**`, etc.
+- ✅ Added basic error handling and input sanitation.
+- 📊 Installed and explored `react-apexcharts` for rendering charts.
+- 📈 Created basic line, bar, and pie charts using sample data.
+
+------
+
+### ✅ Key Learnings - day 11
+
+- Improved JavaScript expression handling within controlled components.
+- Learned to manage user input sanitation before running `eval()`.
+- Understood the basics of integrating **ApexCharts** in React.
+- Gained experience in configuring chart types and styles dynamically.
+- Realized the power of charts in enhancing frontend UI/UX.
+
+------
+
+### ⚠️ Problems Faced - day 11
+
+- Conflicts while using `eval()` with edge cases like multiple operators.
+- ApexCharts documentation was slightly complex at first.
+- Faced responsiveness issues in initial chart layout.
+
+------
+
+### 🧮 Updated Calculator Screenshot
+
+![Updated Calculator Screenshot](./day%2010/src/assets/cal.png)
+
+------
+
+### 📊 ApexCharts Sample Chart Screenshot
+
+![ApexCharts Screenshot](./day%2011/src/assets/chart.png)
+
+------
+
+### 📦 Installed Dependencies
+
+```bash
+npm install react-apexcharts apexcharts
+```
+
+------
