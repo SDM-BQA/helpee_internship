@@ -10,7 +10,9 @@ interface Tasks {
     name:string,
     value:string,
     priorityNum:number
-  }
+  },
+  time:string,
+  status:string
 }
 
 const TaskContainer = () => {

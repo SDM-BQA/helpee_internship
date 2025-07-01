@@ -952,3 +952,127 @@ npm install react-apexcharts apexcharts
 ```
 
 ------
+
+## DAY 12
+
+Today, I created a new **ToDo App** using **React**, **Tailwind CSS**, and a new state management library called **Zustand**. It was my first time exploring Zustand, and I found it lightweight and easy to integrate compared to Redux.
+
+------
+
+### 🔧 What I Did - day 12
+
+- ✅ Built a fully functional **ToDo App**.
+- ✅ Used **Tailwind CSS** for responsive and clean UI.
+- ✅ Integrated **Zustand** for managing global state (tasks list, input, updates).
+- ✅ Added functionality to **add**, **delete**, and **toggle** task status.
+
+------
+
+### ✅ Key Learnings - day 12
+
+- Understood the basics of **Zustand** store creation and usage.
+- Learned to manage application state globally without boilerplate code.
+- Improved knowledge of **Tailwind utility classes** for quick UI styling.
+- Built a clear separation between state logic and UI components.
+
+------
+
+### ⚠️ Problems Faced
+
+- Initially confused about how Zustand works compared to Redux or useContext.
+- Faced issues updating and persisting tasks correctly on multiple re-renders.
+- Styling responsiveness using Tailwind took a few extra iterations.
+
+------
+
+### 🖼️ Screenshot Todo App
+
+![Zustand Todo App](./day%2012/src/assets/todo.png)
+
+------
+
+### TodoStore
+
+```ts
+import { create } from "zustand";
+
+interface Tasks {
+  id: string,
+  name:string,
+  description:string,
+  tag:string,
+  priority:{
+    name:string,
+    value:string,
+    priorityNum:number
+  },
+  time:string,
+  status:string
+}
+
+const todoStore = (set, get) => ({
+  todos: JSON.parse(localStorage.getItem("todos")) || [],
+
+  filterType: "all",
+  addTask: (task:Tasks) => {
+    const newTask = {
+      ...task,
+      status: "active",
+      time: new Date().toLocaleString(),
+    };
+
+    const updatedTodos = [...get().todos, newTask];
+
+    set({ todos: updatedTodos });
+
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+  },
+
+  taskStatus: (id:string) => {
+    const todos = get().todos;
+    const updatedTodos = todos.map((todo:Tasks) => {
+      if (todo.id === id && todo.status === "active") {
+        return {
+          ...todo,
+          status: "completed",
+        };
+      } else if (todo.id === id && todo.status === "completed") {
+        return {
+          ...todo,
+          status: "active",
+        };
+      } else {
+        return todo;
+      }
+    });
+    set((state) => ({
+      todos: updatedTodos,
+    }));
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+  },
+
+  deleteTask: (id:string) => {
+    const todos = get().todos;
+    const updatedTodos = todos.filter((todo:Tasks) => todo.id !== id);
+
+    set((state) => ({
+      todos: updatedTodos,
+    }));
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+  },
+  setFilterType: (type:string) => {
+    set({ filterType: type });
+  },
+});
+
+const useTodoStore = create(todoStore);
+
+export default useTodoStore;
+
+```
+
+### 📦 Installed Dependencies - day 12
+
+```bash
+npm install zustand
+```

@@ -1,10 +1,24 @@
 import { create } from "zustand";
 
+interface Tasks {
+  id: string,
+  name:string,
+  description:string,
+  tag:string,
+  priority:{
+    name:string,
+    value:string,
+    priorityNum:number
+  },
+  time:string,
+  status:string
+}
+
 const todoStore = (set, get) => ({
   todos: JSON.parse(localStorage.getItem("todos")) || [],
 
   filterType: "all",
-  addTask: (task) => {
+  addTask: (task:Tasks) => {
     const newTask = {
       ...task,
       status: "active",
@@ -18,9 +32,9 @@ const todoStore = (set, get) => ({
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   },
 
-  taskStatus: (id) => {
+  taskStatus: (id:string) => {
     const todos = get().todos;
-    const updatedTodos = todos.map((todo) => {
+    const updatedTodos = todos.map((todo:Tasks) => {
       if (todo.id === id && todo.status === "active") {
         return {
           ...todo,
@@ -41,16 +55,16 @@ const todoStore = (set, get) => ({
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   },
 
-  deleteTask: (id) => {
+  deleteTask: (id:string) => {
     const todos = get().todos;
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    const updatedTodos = todos.filter((todo:Tasks) => todo.id !== id);
 
     set((state) => ({
       todos: updatedTodos,
     }));
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   },
-  setFilterType: (type) => {
+  setFilterType: (type:string) => {
     set({ filterType: type });
   },
 });

@@ -6,7 +6,7 @@ const ProgressBar = () => {
     const todos = useTodoStore((state)=>state.todos)
 
     const completedTodo = todos.filter((todo)=>todo.status==='completed')
-    const percentage = (completedTodo.length / todos.length) * 100
+    const percentage = Math.ceil((completedTodo.length / todos.length) * 100)
 
 
   return (
