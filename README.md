@@ -1076,3 +1076,52 @@ export default useTodoStore;
 ```bash
 npm install zustand
 ```
+
+------
+
+## DAY 13
+
+Today, I **converted the UI** of my existing **ToDo App** (from Day 12) from **Tailwind CSS** to **Ant Design**. Alongside the design overhaul, I also **refactored the progress bar logic** to work dynamically based on selected task tags.
+
+------
+
+### 🔧 What I Did - day 13
+
+- ✅ Replaced all **Tailwind components** with clean, ready-made **Ant Design components**.
+- ✅ Updated forms, buttons, layout, and task cards using Ant Design.
+- ✅ Refined the **progress bar** to reflect completion status **based on selected tag only** instead of all tasks.
+- ✅ Ensured consistent design and responsiveness with Ant Design grid system.
+
+------
+
+### ✅ Key Learnings - day 13
+
+- Gained hands-on experience with **Ant Design components** like:
+  - `Form`, `Input`, `Select`, `Button`, `Card`, `Progress`, `Tag`, `Row`, `Col`.
+- Learned to **conditionally render** progress based on selected filter/tag.
+- Understood Ant Design's **grid layout system** and styling customization.
+- Realized how Ant Design accelerates UI development with consistency.
+
+------
+
+### ⚠️ Problems Faced - day 13
+
+- Faced some difficulty replacing Tailwind layout with Ant Design’s grid system.
+- Needed extra logic to dynamically calculate **tag-specific progress**.
+- Encountered styling overrides while mixing custom CSS with Ant Design classes.
+
+------
+
+### 🖼️ Screenshot Todo App using Ant Design
+
+![Ant Design Todo App](./day%2013/src/assets/todonew.png)
+
+------
+
+### 📦 Installed Dependencies
+
+```bash
+npm install antd
+```
+
+------
