@@ -17,6 +17,10 @@ const Tasks = ({ task }) => {
   if (task.status === "active") statusColor = "text-red-300";
   else statusColor = "text-green-500";
 
+  let statusChgDiv = ""
+  if (task.status === "active") statusChgDiv = "text-center p-3 bg-green-500  text-white border border-black cursor-pointer font-semibold rounded-lg";
+  else statusChgDiv = "text-center p-3 bg-red-600 text-white border border-black cursor-pointer font-semibold rounded-lg";
+
   //   store
   const taskStatus = useTodoStore((state) => state.taskStatus);
   const taskDelete = useTodoStore((state) => state.deleteTask);
@@ -48,15 +52,22 @@ const Tasks = ({ task }) => {
           {task.status.toUpperCase()}
         </span>
       </div>
-      <div className="flex flex-col gap-1 w-1/6">
+      <div className="flex flex-col gap-1 w-1/5">
         <div
-          className="text-center p-2 bg-green-400 text-white border border-black cursor-pointer font-semibold rounded-lg"
+          className={statusChgDiv}
           onClick={() => taskStatus(task.id)}
         >
+         <span className="flex items-center justify-center w-full">
+          <span className="mr-1">
+          {task.status === "active" ? <i className="fa-solid fa-check fa-lg"></i> : <i className="fa-solid fa-xmark fa-lg"></i>}
+          </span>
+          <span>
           {task.status === "active" ? "Mark As Done" : "Not Done"}
+          </span>
+          </span> 
         </div>
         <div
-          className="text-center p-2 bg-red-400 text-white border border-black cursor-pointer font-semibold rounded-lg"
+          className="text-center p-3 bg-red-400 text-white border border-black cursor-pointer font-semibold rounded-lg"
           onClick={() => {
             toast.success('Task Deleted Successfully')
             taskDelete(task.id)
