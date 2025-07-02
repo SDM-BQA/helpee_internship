@@ -20,7 +20,7 @@ const Tasks = ({ task }) => {
 
   let statusChgDiv = "";
   if (task.status === "active") statusChgDiv = "#00c951";
-  else statusChgDiv = "#ff6467";
+  else statusChgDiv = "#8B0000";
 
   //   store
   const taskStatus = useTodoStore((state) => state.taskStatus);
@@ -137,7 +137,7 @@ const Tasks = ({ task }) => {
         </Button>
         <Button
           style={{
-            backgroundColor: "#af7514",
+            backgroundColor: "#EE4B2B",
             textAlign: "center",
             padding: "1.7rem",
             color: "#ffffff",

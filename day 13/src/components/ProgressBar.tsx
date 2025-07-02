@@ -1,16 +1,25 @@
-import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import useTodoStore from "../store/TodoStore";
 import { Flex, Progress } from "antd";
 const ProgressBar = () => {
   const todos = useTodoStore((state) => state.todos);
+  const filterType = useTodoStore((state) => state.filterType);
 
-  const completedTodo = todos.filter((todo) => todo.status === "completed");
-  const percentage = Math.ceil((completedTodo.length / todos.length) * 100);
+  const filteredTasks =
+    filterType === "all"
+      ? todos
+      : todos.filter((task) => task.tag.toLowerCase() === filterType);
+
+  const completedTodo = filteredTasks.filter(
+    (todo) => todo.status === "completed"
+  );
+  const percentage = Math.ceil(
+    (completedTodo.length / filteredTasks.length) * 100
+  );
 
   return (
     <Flex
-    align="center"
+      align="center"
       justify="between"
       style={{
         width: "100%",
@@ -36,7 +45,7 @@ const ProgressBar = () => {
             color: "#1677ff",
           }}
         >
-          Total Tasks Added: {todos.length}
+          Total Tasks Added: {filteredTasks.length}
         </span>
         <span
           style={{
