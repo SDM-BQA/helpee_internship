@@ -13,7 +13,7 @@ const App = () => {
         fontSize:"1.8rem",
         color:"#fefefe"
       }}>
-        Calender
+        Calendar
       </div>
       <Calender/>
     </Flex>
