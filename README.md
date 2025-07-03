@@ -1125,3 +1125,49 @@ npm install antd
 ```
 
 ------
+
+## DAY 14
+
+Today, I built a **custom calendar component** using **React** and **Ant Design**. I focused on manually rendering dates, handling month/year navigation, and applying **custom styles for weekends (Saturday and Sunday)**. This component was styled using both Ant Design and custom CSS.
+
+------
+
+### 🔧 What I Did - day 14
+
+- ✅ Created a custom calendar layout using **Ant Design's** `Flex`, `Button`, and other components.
+- ✅ Highlighted the current date with a special color.
+- ✅ Applied custom text colors for:
+  - **Sunday** → Red
+  - **Saturday** → Blue
+- ✅ Implemented navigation:
+  - Switch months and years using arrow buttons.
+  - Jump to **Today** with a dedicated button.
+- ✅ Handled blank cells for start-of-month alignment.
+
+------
+
+### ✅ Key Learnings -day 14
+
+- Improved skills using **Ant Design’s Flex layout** for building structured UIs.
+- Learned to calculate:
+  - First day of the month
+  - Number of days in a month
+  - Day alignment in a calendar grid
+- Applied **conditional styling** based on `weekDay` and `isToday`.
+- Understood the importance of date manipulation using native **JavaScript Date API**.
+
+------
+
+### ⚠️ Problems Faced - day 14
+
+- Handling the offset for the first day (start alignment) required careful date logic.
+- Customizing weekend styles without affecting weekday layout.
+- Managing responsive design within fixed column widths (14.28%).
+
+------
+
+### 📷 Screenshot Calender
+
+![Calendar Component](./day%2014/src/assets/calender.png)
+
+------
