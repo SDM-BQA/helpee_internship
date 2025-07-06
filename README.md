@@ -1171,3 +1171,56 @@ Today, I built a **custom calendar component** using **React** and **Ant Design*
 ![Calendar Component](./day%2014/src/assets/calender.png)
 
 ------
+
+## DAY 15
+
+Today, I designed a **dashboard layout** using **React with TypeScript** and **Tailwind CSS**. Though the dashboard is currently non-functional, I populated it with **dummy data** to simulate real UI behavior. I also explored **Nivo Charts** for rendering beautiful, customizable charts.
+
+------
+
+### 🔧 What I Did - day 15
+
+- ✅ Created a multi-panel **dashboard UI** with `LeftPanel` and `RightPanel` layout.
+- ✅ Used **Tailwind CSS** to style sections, components, and layout.
+- ✅ Created reusable components like:
+  - `Navbar`
+  - `Profile`
+  - `ProfileStats`
+  - `ProfileTracker`
+- ✅ Implemented **Nivo Charts** to visualize task tracking using dummy data.
+- ✅ Applied **glassmorphism effect**, shadows, and soft gradients to the layout.
+
+------
+
+### ✅ Key Learnings - day 15
+
+- Understood how to:
+  - Align components using Tailwind’s `flex`, `gap`, `h-dvh`, and `w-*` utilities.
+  - Create **glass-effect UI** using semi-transparent backgrounds and blur.
+  - Use **Nivo Charts** for clean, responsive data visualization.
+- Learned to **overlap divs** effectively using positioning, `z-index`, and Tailwind's layout utilities.
+- Got hands-on practice with **component composition** in React.
+
+------
+
+### ⚠️ Problems Faced - day 15
+
+- Initial layout alignment was tricky—especially making it responsive.
+- Overlapping divs correctly with layered design needed careful styling.
+- Customizing Nivo Chart appearance with gradients and legends required extra effort.
+
+------
+
+### 🖼️ Dashboard Screenshot - day 15
+
+![Dashboard UI Preview](/day%2015/src/assets/dash.png)
+
+------
+
+### 📦 Installed Dependencies - day 15
+
+```bash
+npm install @nivo/core @nivo/bar
+```
+
+------
