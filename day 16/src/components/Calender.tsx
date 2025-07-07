@@ -403,20 +403,32 @@ const Calender = () => {
         >
           {!visibleAddEvent && !visibleAddNote && (
             <>
-              <Flex>
+              <Flex
+                align="center"
+                justify="space-between"
+                style={{ width: "100%",borderBottom: "1px solid gray",}}
+              >
                 <span
                   style={{
                     width: "100%",
                     fontWeight: "bold",
                     fontSize: "1rem",
                     padding: ".5rem",
-                    borderBottom: "1px solid gray",
+                    
+                    textAlign: "center",
                   }}
                 >
-                  Add Events & Notes
+                  Add Events
+                </span>
+                <span>
+                  <FaXmark
+                  color="red"
+                    size={20}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setVisibleContextMenu(false)}
+                  />
                 </span>
               </Flex>
-
               <Flex
                 align="center"
                 gap={".5rem"}
@@ -683,7 +695,12 @@ const Calender = () => {
             // justify="center"
             vertical={true}
           >
-            <div style={{cursor:'pointer'}} onClick={()=>setVisibleSideBar(false)}><FaXmark color="red" size={25}/></div>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => setVisibleSideBar(false)}
+            >
+              <FaXmark color="red" size={25} />
+            </div>
             {/* event details */}
             <Flex
               vertical={true}

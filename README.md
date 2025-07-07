@@ -1224,3 +1224,79 @@ npm install @nivo/core @nivo/bar
 ```
 
 ------
+
+## DAY 16
+
+Today, I upgraded the **custom calendar component** (from Day 14) by adding the ability to **add and view events or notes** on individual dates. I also implemented **right-click (context menu)** and **left-click handling** without relying on any pre-built context menu libraries.
+
+------
+
+### 🔧 What I Did - day 16
+
+- ✅ Added feature to **add events and notes** to specific calendar dates.
+- ✅ If an event or note exists for a day, a small **icon appears** on the respective date cell.
+- ✅ Implemented **left-click vs. right-click** handling using native `mousedown` logic.
+  - **Left-click** → Shows event/note list for that day.
+  - **Right-click** → Opens context menu to add event or note.
+- ✅ Tracked and filtered events/notes using the date string like `23 June, 2025`.
+- ✅ Stored notes and events separately but displayed based on matching `dayId`.
+- ✅ Used a custom **`useEffect` hook** to track clicks and update the UI accordingly.
+
+------
+
+### ✅ Key Learnings - day 16
+
+- Learned how to:
+  - Detect **mouse click types** using `e.button === 0` (left) and `e.button === 2` (right).
+  - Dynamically **position a context menu** using `clientX` and `clientY`.
+  - Efficiently **filter and map notes/events** based on the selected day.
+- Realized the importance of separating logic:
+  - Currently, the **entire component is inside one file**, making it hard to maintain.
+  - Next step: break it into modular subcomponents.
+
+------
+
+### ⚠️ Problems Faced - day 16
+
+- Mapping the events to the correct calendar day took several attempts to format and compare dates consistently.
+- Having the entire calendar, event logic, and context menu in a single file made the code lengthy and difficult to debug.
+- Ensuring correct UI updates for both left and right clicks needed multiple state dependencies in the `useEffect`.
+
+------
+
+### 🧠 Code Snippet: Mouse Click Logic
+
+```ts
+useEffect(() => {
+  const handleMouseDown = (e) => {
+    if (e.button === 0 && e.target.id) {
+      setVisibleSideBar(true);
+      const day = `${e.target.id} ${currentMonth[0].name}, ${currentYear}`;
+      setFilterEventTracker(() =>
+        eventTracker.filter((eventName) => eventName.dayId === day)
+      );
+      setFilterNoteTracker(() =>
+        noteTracker.filter((noteName) => noteName.dayId === day)
+      );
+      if (visibleContextMenu) setVisibleContextMenu(false);
+    } else if (e.button === 2 && e.target.id) {
+      setXPosition(e.clientX);
+      setYPosition(e.clientY);
+      setDayId(e.target.id);
+      if (visibleSideBar) setVisibleSideBar(false);
+      setVisibleContextMenu(true);
+    }
+  };
+
+  window.addEventListener("mousedown", handleMouseDown);
+  return () => {
+    window.removeEventListener("mousedown", handleMouseDown);
+  };
+}, [eventTracker, noteTracker, visibleContextMenu, currentMonth, currentYear]);
+```
+
+### 🖼️ Calender Screenshot - day 16
+
+![Calender UI Preview](/day%2016/src/assets/cal2.png)
+![Calender UI Preview](/day%2016/src/assets/cal3.png)
+![Calender UI Preview](/day%2016/src/assets/cal4.png)
