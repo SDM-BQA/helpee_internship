@@ -1302,3 +1302,104 @@ useEffect(() => {
 ![Calender UI Preview](/day%2016/src/assets/cal4.png)
 
 ------
+
+## DAY 17
+
+Today, I focused on exploring **class-based components** in React and their lifecycle methods. I also revisited and explored key React concepts like `useEffect`, `useMemo`, `useParams`, `useRef`, and **Error Boundaries**.
+
+------
+
+### ✅ What I Did - day 17
+
+- Created a **Counter component** using class-based components.
+- Used lifecycle methods: `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`.
+- Fetched dummy data inside class component lifecycle.
+- Created a **Login and User Info page** using `useParams` to pass and extract data via URL.
+- Revisited `useEffect` for component lifecycle in functional components.
+- Learnt about `useMemo` and its use in memoizing computations.
+- Learnt and implemented **Error Boundaries** in React.
+
+------
+
+### 🧠 Key Learnings - day 17
+
+- **Class-based lifecycle methods**:  
+  - `componentDidMount` – API calls or setup logic.  
+  - `componentDidUpdate` – Respond to prop/state changes.  
+  - `componentWillUnmount` – Cleanup tasks.
+
+- **React Router – `useParams`** to extract values from the URL dynamically.
+
+- **`useEffect` vs class methods**: Functional component lifecycle replacement.
+
+- **`useMemo`** – Used to memoize expensive calculations to avoid unnecessary re-renders.
+
+- **`useRef`** – Helps to hold mutable values and access DOM nodes directly.
+
+- **Error Boundary** – A fallback mechanism in class-based components to catch rendering errors.
+
+------
+
+### 🧪 Sample Code Snippets - day 17
+
+#### 🔢 Counter Using Class
+
+```tsx
+class CounterUsingClass extends Component<MyComponentsProps, MyComponentsState> {
+  ...
+  render(): ReactNode {
+    return (
+      <div>
+        <FaPlus onClick={this.handleIncrement} />
+        Count is: {this.state.count}
+        <FaMinus onClick={this.handleDecrement} />
+      </div>
+    );
+  }
+}
+```
+
+------
+
+#### 📄 Lifecycle Fetch Example
+
+```ts
+componentDidMount(): void {
+  this.fetchUser(); // Fetch user on initial render
+}
+componentDidUpdate(prevProps: Props): void {
+  if (prevProps.userId !== this.props.userId) this.fetchUser();
+}
+```
+
+------
+
+#### 🌐 Login with useParams
+
+```tsx
+<Link to={`/login/${userName}/${userEmail}`}>
+  Login
+</Link>
+
+const { userName, userEmail } = useParams();
+```
+
+#### 🚨 Error Boundary
+
+```tsx
+static getDerivedStateFromError(error: Error): State {
+  return { hasError: true };
+}
+```
+
+### ⚠️ Problems Faced - day 17
+
+Understanding when exactly each lifecycle method triggers.
+
+Mapping the usage of useEffect to class methods was tricky at first.
+
+Understanding how to pass props to class-based components.
+
+Figuring out how Error Boundary works in contrast to try/catch blocks.
+
+------
