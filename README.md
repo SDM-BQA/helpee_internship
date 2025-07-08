@@ -1317,6 +1317,7 @@ Today, I focused on exploring **class-based components** in React and their life
 - Created a **Login and User Info page** using `useParams` to pass and extract data via URL.
 - Revisited `useEffect` for component lifecycle in functional components.
 - Learnt about `useMemo` and its use in memoizing computations.
+- Learnt about `useMemo` and its use in referring element.
 - Learnt and implemented **Error Boundaries** in React.
 
 ------
