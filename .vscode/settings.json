@@ -1,17 +1,39 @@
 {
-    "cSpell.words": [
-        "allice",
-        "bgradient",
-        "decrementounter",
-        "filte",
-        "glassmorphism",
-        "Googlemeet",
-        "Helpee",
-        "Leftprofile",
-        "Nivo",
-        "Picsum",
-        "Traversy",
-        "treemap",
-        "Xmark"
-    ]
+  "cSpell.words": [
+    "allice",
+    "bgradient",
+    "Componen",
+    "decrementounter",
+    "filte",
+    "glassmorphism",
+    "Googlemeet",
+    "Helpee",
+    "ironman",
+    "Leftprofile",
+    "Nivo",
+    "Picsum",
+    "spiderman",
+    "Traversy",
+    "treemap",
+    "Xmark"
+  ],
+  "hide-files.files": [],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/CVS": true,
+    "nodemon.json": true
+  },
+  "dimmer.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "*/.code-search": true,
+    "**/dist": true
+  }
 }
