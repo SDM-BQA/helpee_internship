@@ -1404,3 +1404,112 @@ Understanding how to pass props to class-based components.
 Figuring out how Error Boundary works in contrast to try/catch blocks.
 
 ------
+
+## DAY 18
+
+Today I started learning **Next.js** and explored its core concepts related to the App Router and routing system. I also created a mini project that fetches data from three different public APIs using server components.
+
+------
+
+### 🔍 Topics Covered - day 18
+
+#### 📦 Server Component
+
+Server components in Next.js run exclusively on the server and do not send any JavaScript to the browser. They are ideal for data-fetching, heavy logic, and improving performance since they reduce bundle size.
+
+#### 🧠 Client Component
+
+Client components are interactive React components rendered in the browser. To make a component a client component, the `"use client"` directive must be added at the top. These are used when the component requires state, effects, or event handling.
+
+#### 🛤️ App-based Routing
+
+Next.js uses **file-based routing**. Each file inside the `app/` directory automatically becomes a route. For example, `app/about/page.tsx` corresponds to `/about`.
+
+#### 🔁 Dynamic Routes
+
+Dynamic segments can be defined using square brackets, like `app/user/[id]/page.tsx`. This allows capturing parameters directly from the URL.
+
+#### 📁 Route Groups
+
+Route groups (`(group-name)`) help organize files in the `app/` folder without affecting the URL structure. They are useful for separating layouts or middleware logic cleanly.
+
+#### 🧩 Layout
+
+Layouts in Next.js define shared UI across pages. The `layout.tsx` file can wrap routes to provide consistent elements like headers or footers.
+
+#### 🧭 Nested Layouts
+
+Nested layouts allow different sections of a site to have unique layouts. A layout file placed inside a folder wraps only that route and its children, creating hierarchy and reuse.
+
+#### 🔗 Navigation
+
+Next.js provides `Link` from `next/link` and the `useRouter` hook for navigating between routes programmatically or declaratively.
+
+#### 📍 usePathname
+
+`usePathname` is a hook from `next/navigation` used to retrieve the current URL path. It's useful for conditional rendering or active link states based on the route.
+
+#### 🔁 Redirect using useRouter
+
+With `useRouter`, you can programmatically redirect users using `router.push()` or `router.replace()`, ideal for login flows or navigation after form submission.
+
+#### 🔨 Route Handlers
+
+Route handlers in `app/api/route.ts` are used to define API endpoints. These replace the older `pages/api` and follow RESTful conventions like `GET`, `POST`, etc.
+
+#### 📦 Data Fetching (Client & Server)
+
+- **Client-side**: Done inside client components using `useEffect` or SWR.
+- **Server-side**: Done directly in server components or via `getServerSideProps` in the Pages Router (not used in App Router).
+  
+#### ⚙️ Server Actions
+
+Server Actions allow you to define async functions that run only on the server. These are still experimental but provide a clean way to perform data mutations without API routes.
+
+------
+
+### 🔨 Mini Project: Predicting Age, Gender, and Country by Name
+
+I created a small project in Next.js that fetches predictions from 3 public APIs (`agify.io`, `genderize.io`, `nationalize.io`) using server-side rendering.
+
+```ts
+const getPredictedAge = async (name: string) => {
+  const res = await fetch(`https://api.agify.io/?name=${name}`);
+  return res.json();
+};
+
+const getPredictedGender = async (name: string) => {
+  const res = await fetch(`https://api.genderize.io/?name=${name}`);
+  return res.json();
+};
+
+const getPredictedCountry = async (name: string) => {
+  const res = await fetch(`https://api.nationalize.io/?name=${name}`);
+  return res.json();
+};
+
+export default async function Prediction({ params }: { params: { name: string } }) {
+  const ageData = getPredictedAge(params.name);
+  const genderData = getPredictedGender(params.name);
+  const countryData = getPredictedCountry(params.name);
+
+  const [age, gender, country] = await Promise.all([
+    ageData,
+    genderData,
+    countryData,
+  ]);
+
+  // Render logic here
+}
+```
+
+### ⚠️ Problem Faced - day 18
+
+- Initially, I was confused between server and client components and when to use each. I also faced issues while fetching data in a server component because of misunderstanding the async behavior in Next.js.
+
+### Screenshot - day 18
+
+![Home Page Preview](/day%2018/project/public/one.png)
+![Prediction Page Preview](/day%2018/project/public/two.png)
+
+------
