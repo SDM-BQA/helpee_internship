@@ -12,6 +12,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import ErrorBoundary from "./example/ErrorBoundary";
 import LoginPage from "./pages/LoginPage";
 import UserInfoPage from "./pages/UserInfoPage";
+import UseReducerExample from "./components/UseReducerExample";
 
 const App = () => {
   return (
@@ -24,8 +25,8 @@ const App = () => {
           {/* <FetchingUserClassBased/> */}
           {/* <UseEffectExample name="SDM"/> */}
           {/* <UseMemoExample/> */}
-          <Route index element={<LoginPage />} /> 
-          <Route path="/login/:userName/:userEmail" element={<UserInfoPage/>}/>
+          {/* <Route index element={<LoginPage />} /> 
+          <Route path="/login/:userName/:userEmail" element={<UserInfoPage/>}/> */}
         </Routes>
         {/*
         <div className="flex flex-col gap-5">
@@ -39,6 +40,7 @@ const App = () => {
         */}
         {/* <UseMemoExample/> */}
         {/* <UseRefExample /> */}
+        <UseReducerExample/>
       </BrowserRouter>
     </div>
   );
