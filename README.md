@@ -123,6 +123,19 @@
     - [🔨 Mini Project: Predicting Age, Gender, and Country by Name](#-mini-project-predicting-age-gender-and-country-by-name)
     - [⚠️ Problem Faced - day 18](#️-problem-faced---day-18)
     - [Screenshot - day 18](#screenshot---day-18)
+  - [DAY 19](#day-19)
+    - [🚀 GraphQL \& Apollo Exploration](#-graphql--apollo-exploration)
+    - [📘 Main Concepts in GraphQL \& Apollo](#-main-concepts-in-graphql--apollo)
+      - [**1. GraphQL Basics**](#1-graphql-basics)
+      - [**2. Apollo Server \& Client**](#2-apollo-server--client)
+      - [**3. GraphQL Schema**](#3-graphql-schema)
+      - [**4. Apollo Server Setup**](#4-apollo-server-setup)
+      - [**5. Apollo Client Setup**](#5-apollo-client-setup)
+      - [**6. TypeScript Integration**](#6-typescript-integration)
+      - [**7. Benefits of GraphQL**](#7-benefits-of-graphql)
+    - [🧪 Project: Apollo Server for Book Store](#-project-apollo-server-for-book-store)
+    - [🧠 What I Learned - day 19](#-what-i-learned---day-19)
+    - [🖼️ SpaceX Data Screenshot - day 19](#️-spacex-data-screenshot---day-19)
 
 ## DAY 1
 
@@ -1635,5 +1648,162 @@ export default async function Prediction({ params }: { params: { name: string } 
 
 ![Home Page Preview](/day%2018/project/public/one.png)
 ![Prediction Page Preview](/day%2018/project/public/two.png)
+
+------
+
+## DAY 19
+
+### 🚀 GraphQL & Apollo Exploration
+
+Today, I explored **GraphQL** concepts and implemented a simple **Apollo Server** using Express. I also fetched real data from the **SpaceX GraphQL API** to understand how GraphQL queries work in real-world APIs.
+
+------
+
+### 📘 Main Concepts in GraphQL & Apollo
+
+#### **1. GraphQL Basics**
+
+- **Query**: To fetch data from the server.
+- **Mutation**: To add, update, or delete data on the server.
+- **Subscription**: For real-time updates (not covered today, but noted for future).
+
+#### **2. Apollo Server & Client**
+
+- **Apollo Server**: A powerful tool to define schema and resolvers using GraphQL and expose them via an HTTP endpoint.
+- **Apollo Client**: A React-friendly GraphQL client that makes querying and caching easier.
+
+#### **3. GraphQL Schema**
+
+- **Types**: Used to define the structure of data (e.g., `Book` type).
+- **Queries**: Used to get the list or individual data (like `books`, `book`).
+- **Mutations**: Used to change the data (like `addBook`).
+- **Resolvers**: Functions that handle the actual logic for fetching and returning data.
+
+#### **4. Apollo Server Setup**
+
+- `typeDefs`: Defines GraphQL types, queries, and mutations using the `gql` template literal.
+- `resolvers`: Contains the functions to resolve the defined queries/mutations.
+- **Express Integration**: Apollo Server is mounted on an Express server.
+
+#### **5. Apollo Client Setup**
+
+- `ApolloProvider`: Wraps the app to provide context.
+- `useQuery`, `useMutation`: Hooks for performing GraphQL operations from the frontend.
+
+#### **6. TypeScript Integration**
+
+- Type safety for both the server and client.
+- Interfaces help define the data shape clearly.
+
+#### **7. Benefits of GraphQL**
+
+- Request only the required data.
+- Avoid over-fetching and under-fetching.
+- Single endpoint for all operations.
+
+---
+
+### 🧪 Project: Apollo Server for Book Store
+
+I created a simple GraphQL server using **Apollo Server** and **Express**. Below is the code snippet for setting up types, resolvers, and the server:
+
+```ts
+import { ApolloServer, gql } from "apollo-server-express";
+import express from "express";
+
+const books = [
+  {
+    bookName: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    publishedYear: 1925,
+    price: 10.99,
+  },
+  {
+    bookName: "1984",
+    author: "George Orwell",
+    publishedYear: 1949,
+    price: 8.99,
+  },
+  {
+    bookName: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    publishedYear: 1960,
+    price: 12.99,
+  },
+];
+
+const typeDefs = gql`
+  type Book {
+    bookName: String
+    author: String
+    publishedYear: Int
+    price: Float
+  }
+
+  type Query {
+    books: [Book]
+    book(bookName: String!): Book
+  }
+
+  type Mutation {
+    addBook(
+      bookName: String!
+      author: String!
+      publishedYear: Int!
+      price: Float!
+    ): Book
+  }
+`;
+
+const resolvers = {
+  Query: {
+    books: () => books,
+    book: (_: any, { bookName }: { bookName: String }) =>
+      books.find((book) => book.bookName === bookName),
+  },
+  Mutation: {
+    addBook: (
+      _: any,
+      { bookName, author, publishedYear, price }: { bookName: string; author: string; publishedYear: number; price: number }
+    ) => {
+      const newBook = { bookName, author, publishedYear, price };
+      books.push(newBook);
+      return newBook;
+    },
+  },
+};
+
+const server = new ApolloServer({ typeDefs, resolvers });
+const app = express();
+
+const startServer = async () => {
+  await server.start();
+  server.applyMiddleware({ app });
+
+  app.listen({ port: 4000 }, () => {
+    console.log(`Server running at http://localhost:4000/graphql`);
+  });
+};
+
+startServer();
+```
+
+### 🧠 What I Learned - day 19
+
+- The difference between REST and GraphQL.
+
+- How resolvers map incoming queries to logic.
+
+- The flexibility of fetching only required fields in GraphQL.
+
+- Apollo Server integration with Express.
+
+- How to perform simple mutations to add data.
+
+- The benefit of using GraphQL in modern APIs.
+
+### 🖼️ SpaceX Data Screenshot - day 19
+
+![SpaceX Data](/day%2019/public/Screenshot%202025-07-10%20173944.png)
 
 ------
