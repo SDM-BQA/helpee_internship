@@ -136,6 +136,11 @@
     - [🧪 Project: Apollo Server for Book Store](#-project-apollo-server-for-book-store)
     - [🧠 What I Learned - day 19](#-what-i-learned---day-19)
     - [🖼️ SpaceX Data Screenshot - day 19](#️-spacex-data-screenshot---day-19)
+  - [📅 Day 20 – Advanced GraphQL with Apollo Client](#-day-20--advanced-graphql-with-apollo-client)
+    - [✅ What I did - day 20](#-what-i-did---day-20)
+    - [🧠 What I learned - day 20](#-what-i-learned---day-20)
+    - [🛠️ Technologies Used - day 20](#️-technologies-used---day-20)
+    - [📸 UI Features - day 20](#-ui-features---day-20)
 
 ## DAY 1
 
@@ -1805,5 +1810,46 @@ startServer();
 ### 🖼️ SpaceX Data Screenshot - day 19
 
 ![SpaceX Data](/day%2019/public/Screenshot%202025-07-10%20173944.png)
+
+------
+
+## 📅 Day 20 – Advanced GraphQL with Apollo Client
+
+### ✅ What I did - day 20
+
+- Revisited and rewatched GraphQL basics and Apollo Client usage.
+- Fetched cat and dog data from a GraphQL API.
+- Displayed animal details including:
+  - Name, ID, Breed, Age
+  - Owner name, mobile, and profile picture
+- Used Apollo Client's `useQuery` hook with polling (`pollInterval: 2000`) for real-time updates.
+- Created a "Refetch" button to manually update data.
+- Designed and implemented form inputs for updating cat details:
+  - Cat ID, Cat Name, Cat Age
+- Logged form data on submit (planned to connect with mutation).
+
+### 🧠 What I learned - day 20
+
+- How to define GraphQL queries using `gql` and fetch nested data (e.g., owner inside animal).
+- How to use Apollo Client’s `useQuery` for querying data and handling:
+  - `loading`, `error`, and `data` states
+- Implemented polling mechanism to simulate real-time updates.
+- Used Tailwind CSS to structure and style the data display.
+- Prepared a form for mutation operations.
+- Refreshed the concept of re-fetching data using Apollo's `refetch()`.
+
+### 🛠️ Technologies Used - day 20
+
+- React (with TypeScript)
+- Apollo Client
+- GraphQL
+- Tailwind CSS
+
+### 📸 UI Features - day 20
+
+- Separate card sections for cat and dog data
+- Owner information with placeholders for profile pics
+- Responsive layout using Flexbox
+- Simple and clean form design
 
 ------
