@@ -141,6 +141,19 @@
     - [🧠 What I learned - day 20](#-what-i-learned---day-20)
     - [🛠️ Technologies Used - day 20](#️-technologies-used---day-20)
     - [📸 UI Features - day 20](#-ui-features---day-20)
+  - [📅 Day 21 – TanStack Query \& Infinite Scrolling](#-day-21--tanstack-query--infinite-scrolling)
+    - [✅ What I did - day 21](#-what-i-did---day-21)
+    - [🧠 What I learned - day 21](#-what-i-learned---day-21)
+      - [📌 Core Concepts - dqy 21](#-core-concepts---dqy-21)
+      - [🧩 Query State - dqy 21](#-query-state---dqy-21)
+      - [⚙️ Query Parameters - dqy 21](#️-query-parameters---dqy-21)
+      - [♻️ Reusable Queries - day 21](#️-reusable-queries---day-21)
+      - [💡 Advanced Concepts - day 21](#-advanced-concepts---day-21)
+      - [🔁 Multiple Queries - day 21](#-multiple-queries---day-21)
+      - [🔄 Query Options - day 21](#-query-options---day-21)
+      - [📦 Infinite Scrolling - day 21](#-infinite-scrolling---day-21)
+    - [🛠️ Technologies Used - dqy 21](#️-technologies-used---dqy-21)
+    - [🧩 Problem Faced - day 21](#-problem-faced---day-21)
 
 ## DAY 1
 
@@ -1851,5 +1864,69 @@ startServer();
 - Owner information with placeholders for profile pics
 - Responsive layout using Flexbox
 - Simple and clean form design
+
+------
+
+## 📅 Day 21 – TanStack Query & Infinite Scrolling
+
+### ✅ What I did - day 21
+
+- Explored **TanStack Query (React Query)** thoroughly.
+- Made detailed notes on core concepts and hooks.
+- Implemented **infinite scrolling** to fetch paginated data using `useInfiniteQuery`.
+
+### 🧠 What I learned - day 21
+
+#### 📌 Core Concepts - dqy 21
+
+- **`queryKey`**: Acts as a unique identifier for each query (important for caching).
+- Difference between **Fresh vs. Stale Data**
+- Set **`staleTime`** to control when cached data becomes stale.
+
+#### 🧩 Query State - dqy 21
+
+- Managed query states using:
+  - `data`, `isFetching`, `isPending`, and `error`
+
+#### ⚙️ Query Parameters - dqy 21
+
+- Used `enabled` for **conditional querying**.
+
+#### ♻️ Reusable Queries - day 21
+
+- Separated query logic into reusable functions/files.
+
+#### 💡 Advanced Concepts - day 21
+
+- Used `useSuspenseQuery()` for clean data handling with React Suspense.
+  - 🚫 Not compatible with `enabled` flag.
+
+#### 🔁 Multiple Queries - day 21
+
+- Learned `useQueries()` for parallel fetching of multiple endpoints.
+
+#### 🔄 Query Options - day 21
+
+- Controlled behavior using:
+  - `refetchOnWindowFocus`
+  - `retry`
+  - `retryDelay`
+
+#### 📦 Infinite Scrolling - day 21
+
+- Used `useInfiniteQuery()` to fetch paginated data.
+- Faced and resolved issues in handling **pagination state and scroll events**.
+
+### 🛠️ Technologies Used - dqy 21
+
+- React
+- TanStack Query (React Query)
+- TypeScript
+- Tailwind CSS
+
+### 🧩 Problem Faced - day 21
+
+- Implementing infinite scroll correctly with `useInfiniteQuery`.
+- Handling when to trigger next page fetch smoothly.
 
 ------
